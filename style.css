@@ -1,0 +1,191 @@
+/* -----------------------------------------------------
+   ESTILOS GENERALES
+----------------------------------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0a0a0a;
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* -----------------------------------------------------
+   CONTENEDOR DE LA LÁMPARA
+----------------------------------------------------- */
+
+#lamp-container {
+    position: relative;
+    top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 1s ease-in-out;
+}
+
+.lamp-cable {
+    width: 3px;
+    height: 120px;
+    background: #3a3a3a;
+}
+
+#svg-lamp {
+    width: 150px;
+    height: auto;
+}
+
+#lamp-glow {
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+#lamp-bulb {
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+
+/* Cuando la lámpara está prendida */
+.lamp-on #lamp-glow {
+    opacity: 1;
+}
+
+.lamp-on #lamp-bulb {
+    opacity: 1;
+}
+
+
+/* -----------------------------------------------------
+   MENSAJE DE AMOR
+----------------------------------------------------- */
+
+#love-message {
+    margin-top: 40px;
+    font-size: 20px;
+    color: #ffd7e4;
+    text-align: center;
+    max-width: 90%;
+    line-height: 1.5;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+
+/* -----------------------------------------------------
+   BOTONES (ESCRITORIO)
+----------------------------------------------------- */
+
+.center-desktop {
+    margin-top: 40px;
+}
+
+#desktop-btn {
+    background: #222;
+    border: 2px solid #fff;
+    padding: 12px 30px;
+    color: white;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#desktop-btn.on {
+    background: #ffe8a3;
+    color: black;
+}
+
+
+/* -----------------------------------------------------
+   BOTÓN PARA MÓVIL
+----------------------------------------------------- */
+
+.center-mobile {
+    margin-top: 40px;
+    display: none;
+}
+
+#mobile-btn {
+    background: #222;
+    border: 2px solid #fff;
+    padding: 14px 35px;
+    color: white;
+    font-size: 22px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#mobile-btn.on {
+    background: #ffe8a3;
+    color: black;
+}
+
+
+/* -----------------------------------------------------
+   EFECTO DE LUZ EN EL BODY
+----------------------------------------------------- */
+
+body.lamp-on {
+    background: radial-gradient(circle, #fff4c8 0%, #0a0a0a 80%);
+    transition: background 0.6s ease-in-out;
+}
+
+
+/* -----------------------------------------------------
+   ADAPTACIÓN PARA CELULAR
+----------------------------------------------------- */
+
+@media (max-width: 600px) {
+
+    body {
+        padding-top: 30px;
+    }
+
+    /* lámpara baja con animación */
+    #lamp-container.lamp-down {
+        transform: translateY(80px);
+    }
+
+    /* mostrar solo el botón móvil */
+    .center-desktop {
+        display: none;
+    }
+
+    .center-mobile {
+        display: block;
+    }
+
+    #love-message {
+        font-size: 18px;
+        padding: 0 20px;
+        margin-top: 25px;
+    }
+
+    #svg-lamp {
+        width: 120px;
+    }
+
+    .lamp-cable {
+        height: 90px;
+    }
+}
+
+/* -----------------------------------------------------
+   EFECTO SUAVE CUANDO LA LUZ PRENDE EN CELULAR
+----------------------------------------------------- */
+
+@media (max-width: 600px) {
+    body.light-on {
+        background: radial-gradient(circle, #fff7d1 0%, #0a0a0a 90%);
+    }
+}
